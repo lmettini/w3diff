@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WPDIFF</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  </head>
+  <body>
+  <!--  <h1>WPDIFF</h1>
+    <p>Welcome to WPDIFF</p>
+
+    <form>
+	    <label for="url1">Url 1</label>
+	    <input type="text" name="url1" />
+
+	    <label for="url2">Url 2</label>
+	    <input type="text" name="url2" />
+
+	    <input type="submit" value="Compare"/>
+	</form>
+-->
+
+<nav style="position: absolute;" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="#">WPDIFF</a>
+	</div>
+  
+  
+	<form class="navbar-form navbar-left" role="search">
+	  <div class="form-group" >
+	  	<input type="text" class="form-control"  name="url1" placeholder="url1" style="margin-bottom: 10px;" />
+	  	<input type="text" class="form-control"  name="url2" placeholder="url2" />
+	  <!--input type="number" class="form-control"  name="timeout" value="3000" /-->
+	  </div>
+	  <button type="submit" class="btn btn-default">Compare</button>
+	</form>
+  
+</nav>
+
+
+
+
+
+
+   	<img id="img-comp" style="width:100%;" src="<%= image %>">
+
+  </body>
+</html>
