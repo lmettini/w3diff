@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "express": "3.1.0",
-    "ejs": "*"
+    "ejs": "*",
+    "async": "0.2.9"
   }
 }

@@ -3,8 +3,7 @@
  * GET home page.
  */
 
-var sys = require('sys'),
-	exec = require('child_process').exec,
+var exec = require('child_process').exec,
 	fs = require('fs'),
 	async = require('async');
 
@@ -18,7 +17,7 @@ function sanitizeUrl(url){
 }
 
 function takeScreenShot(url,ssRole,compareId,callback){
-	exec('phantomjs rasterize.js '+url+' screens/screen_'+ssRole+'_'+compareId+'_.png', function puts(error, stdout, stderr) { 
+	exec('phantomjs rasterize.js '+url+' screens/screen_'+ssRole+'_'+compareId+'.png', function puts(error, stdout, stderr) { 
 		console.log(stdout)
 		callback(null,[]);
 	});
@@ -37,6 +36,8 @@ exports.index = function(req, res){
 		
 	} else {
 
+		var rnd = Math.floor(Math.random() * 1000000);
+
 		url1 = sanitizeUrl(url1)
 		url2 = sanitizeUrl(url2)
 
@@ -49,7 +50,7 @@ exports.index = function(req, res){
 				//Todos estos llamados van en paralelo
 				async.parallel({
 						screen1: function(parallelCallback){
-							takeScreenShot(url1,'A','lalala',parallelCallback);
+							takeScreenShot(url1,'A',rnd,parallelCallback);
 							/*
 							exec('phantomjs rasterize.js '+url1+'' screen1.png, function puts(error, stdout, stderr) { 
 								console.log(stdout)
@@ -58,7 +59,7 @@ exports.index = function(req, res){
 							*/
 		    			},
 		    			screen2: function(parallelCallback){
-							takeScreenShot(url2,'B','lalala',parallelCallback);
+							takeScreenShot(url2,'B',rnd,parallelCallback);
 							/*
 							exec("phantomjs rasterize.js "+url2+" screen2.png", function puts(error, stdout, stderr) { 
 								console.log(stdout)
@@ -75,7 +76,8 @@ exports.index = function(req, res){
 			//Segundos llamados a APIs
 		    function(firstResults, secondStepCallback){
 
-		    	exec("compare screens/screen_A_lalala_.png screens/screen_B_lalala_.png screens/compare.png", function puts(error, stdout, stderr) { 
+		    	console.log("compare screens/screen_A_"+rnd+"_.png screens/screen_B_"+rnd+"_.png screens/compare_"+rnd+".png")
+		    	exec("compare screens/screen_A_"+rnd+".png screens/screen_B_"+rnd+".png screens/compare_"+rnd+".png", function puts(error, stdout, stderr) { 
 		    		
 		    			console.log(stdout)
 		    		
@@ -89,19 +91,23 @@ exports.index = function(req, res){
 				// obtengo imagen y la muestro
 			
 				
+				var compareFileName = 'screens/compare_'+rnd+'.png'
+				fs.readFile(compareFileName, function (err, data) {
+				  	if (err){
+				  		console.log(err);
+				  		res.render('index',{image:'http://www.laion.es/wp-content/uploads/2011/09/stress-registry-pc-computer-error.jpg'});
+				  	}
 
-				fs.readFile('screens/compare.png', function (err, data) {
-				  	if (err) throw err;
-				  
 				  	var data = "data:image/png;base64," + new Buffer(data).toString('base64');
 
 					res.render('index',{image:data});
 
 					callback(null, 'done');
 
-				//	exec("rm screen1.png", function puts(error, stdout, stderr) {});
-				//	exec("rm screen2.png", function puts(error, stdout, stderr) {});
-				//	exec("rm compare.png", function puts(error, stdout, stderr) {});
+				exec("rm screens/compare_"+rnd+".png", function puts(error, stdout, stderr) {});
+				exec("screens/screen_A_"+rnd+".png", function puts(error, stdout, stderr) {});
+				exec("screens/screen_B_"+rnd+".png", function puts(error, stdout, stderr) {});
+				
 				});
 
 			}
