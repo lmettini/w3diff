@@ -13,7 +13,7 @@ var express = require('express')
 
 var app = express();
 
-var port =  process.env.LISTEN_PORT || 3000;
+var port =  process.env.PORT || 3000;
 
 app.configure(function(){
   //app.set('port', process.env.PORT || 3000);
@@ -28,7 +28,11 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
-app.configure('development', function(){
+app.configure('development', function() {
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
+
+app.configure('production', function() {
   app.use(express.errorHandler());
 });
 
