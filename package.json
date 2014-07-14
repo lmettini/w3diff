@@ -23,6 +23,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lmettini/www-compare/issues"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
-}
 }
