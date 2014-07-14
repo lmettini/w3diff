@@ -41,8 +41,6 @@ exports.index = function(req, res){
 		url1 = sanitizeUrl(url1)
 		url2 = sanitizeUrl(url2)
 
-		console.log(url1)
-		console.log(url2)
 
 		async.waterfall([
 	        //Primeros llamados a APIs
