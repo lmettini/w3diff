@@ -1,13 +1,28 @@
 {
-  "name": "application-name",
+  "name": "www-compate",
   "version": "0.0.1",
-  "private": true,
+  "description": "This app compare two websites snapshots",
+  "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lmettini/www-compare"
+  },
+  "keywords": [
+    "web",
+    "compare"
+  ],
   "dependencies": {
-    "express": "3.1.0",
+    "express": "~3.1.0",
     "ejs": "*",
     "async": "0.2.9"
+  },
+  "author": "lmettini",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lmettini/www-compare/issues"
   }
+}
 }
