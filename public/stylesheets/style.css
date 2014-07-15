@@ -22,3 +22,12 @@ a {
 .form-group {
 	margin-right: 20px;
 }
+
+.ads-container{
+	width: 234px;
+	position: absolute;
+	right: 30px;
+	top: 20px;
+}
+
+#adunit {background-color: #000000;height: 60px;width: 234px;}#ads {height: 60px;left: 0px;position: absolute;top: 0px;width: 234px;}#ads ul{list-style: none;}#ads ul li {clear: both;float: left;line-height: 0;overflow: hidden;position: relative;  }#ads table {border-collapse: collapse;border-spacing: 0;}.separator {border-bottom: 1px solid #262626;}.rhtitle {color: #999999;text-decoration: none;word-wrap: break-word;}a.rhtitle:hover {text-decoration: underline;}.icoret-bullet {vertical-align: top;color: #666;}.icoret-title {border-spacing: 2px;margin-left: -8px;table-layout: fixed;word-break: break-word;}.rh-title-overlay {margin: -100%;padding: 100%;}.rhbody {color: #cccccc;word-wrap: break-word;}.rhurlctr {cursor: pointer;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}.rhurlctr_nc {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}.rhfavicon {padding-right: 5px;vertical-align: middle;line-height: 1;}.rhfavicon img {border: 0;}.rhurl {text-decoration: none;}.rhurl:hover {text-decoration: underline;color: #ffffff;}.rhurl span {color: #ffffff;}#ads ul li{height:60px;width:234px} .rh{display:inline-block;font-size:0;line-height:0;overflow:hidden;padding:0;width:234px} .rh > table{height:100%} .rh1{display:inline-block;font-size:0;line-height:0;overflow:hidden;padding:0 0 0 1px} .rh1 > table{width:100%} .rh10{display:inline-block;font-size:16px;line-height:19px;overflow:hidden;padding:0 1px 0 1px;white-space:nowrap} .rh10c{padding:0} .rh11{display:inline-block;font-size:11px;line-height:15px;overflow:hidden;padding:1px;white-space:nowrap} .rh11c{padding:0} .rh13{display:inline-block;font-size:10px;line-height:12px;overflow:hidden;padding:0 1px 0 1px} .rh13c{padding:0} .rh1c{padding:0;vertical-align:top}
