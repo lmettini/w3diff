@@ -18,7 +18,7 @@ if (system.args.length < 3 || system.args.length > 5) {
             window.setTimeout(function () {
                 page.clipRect ={
                   width: 1280,
-                  height: 3000
+                  height: 19000
                 }
 
                 page.render(output);
