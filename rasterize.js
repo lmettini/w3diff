@@ -8,7 +8,7 @@ if (system.args.length < 3 || system.args.length > 5) {
 } else {
     address = system.args[1];
     output = system.args[2];
-    page.viewportSize = { width: 1280, height: 800 };
+    //page.viewportSize = { width: 1280, height: 800 };
 
     page.open(address, function (status) {
         if (status !== 'success') {
@@ -16,10 +16,10 @@ if (system.args.length < 3 || system.args.length > 5) {
             phantom.exit();
         } else {
             window.setTimeout(function () {
-                page.clipRect ={
-                  width: 1280,
-                  height: 19000
-                }
+              //  page.clipRect ={
+              //    width: 1280,
+              //    height: 19000
+              //  }
 
                 page.render(output);
                 phantom.exit();
